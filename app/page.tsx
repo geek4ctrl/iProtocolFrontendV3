@@ -117,9 +117,9 @@ const plans: any = [
 
 // Added recently
 
-export async function POST(request: Request) {
-  const requestUrl = new URL(request.url)
-  const formData = await request.formData()
+async function POST(request: any | never): Promise<void> {
+  const requestUrl: any = new URL(request.url)
+  const formData: any = await request.formData()
 
   const title = String(formData.get('title'))
   const firstname = String(formData.get('firstname'))
