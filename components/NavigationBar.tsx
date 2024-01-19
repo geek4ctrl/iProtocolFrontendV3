@@ -1,6 +1,14 @@
+"use client"
+
 import Link from "next/link"
 import LogoutButton from "./LogoutButton"
-import NavigationBarLanguagesClientComponent from "./NavigationBarLanguagesClientComponent"
+import NavigationBarLanguagesClientComponent from "./NavigationBarLanguagesClientComponent";
+
+import {
+    useTranslation,
+    LanguageSwitcher,
+    LinkWithLocale
+} from "next-export-i18n";
 
 interface NavigationItem {
     // Define the structure of a navigation item as needed
@@ -18,6 +26,8 @@ interface NavigationBarProps {
 }
 
 export default function NavigationBar({ navigation, user }: { navigation: any, user: any }) {
+
+    const { t } = useTranslation();
 
     return (
         <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
@@ -47,7 +57,16 @@ export default function NavigationBar({ navigation, user }: { navigation: any, u
                     </div>
                 </div>
                 <div className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${'block'}`}>
+
                     <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+
+                        <h1>{t('headline')}</h1>
+
+                        <nav>
+                            <LanguageSwitcher lang="de">Deutsch</LanguageSwitcher>
+                            <LanguageSwitcher lang="en">English</LanguageSwitcher>
+                        </nav>
+
                         {
                             navigation.map((item: any, idx: any) => {
                                 return (
