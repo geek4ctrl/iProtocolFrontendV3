@@ -1,0 +1,22 @@
+/* light-theme.css */
+body {
+    background: #EEEEEE !important;
+    color: #1B3B48 !important;
+}
+
+.header {
+    background: #303E4E;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+h3 {
+    color: #1B3B48 !important;
+}
+
+ul a {
+    color: #1B3B48 !important;
+}
+
+/* button {
+    background-color: #0f1113 !important;
+} */
