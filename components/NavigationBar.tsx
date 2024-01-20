@@ -4,6 +4,10 @@ import Link from "next/link"
 import LogoutButton from "./LogoutButton"
 import NavigationBarLanguagesClientComponent from "./NavigationBarLanguagesClientComponent";
 
+import { ThemeSwitcherProvider } from "react-css-theme-switcher";
+import { Sun, Moon } from "react-feather";
+import { useEffect, useState } from "react";
+
 import {
     useTranslation,
     LanguageSwitcher,
@@ -26,6 +30,39 @@ interface NavigationBarProps {
 }
 
 export default function NavigationBar({ navigation, user }: { navigation: any, user: any }) {
+
+    // Keeps the state of the theme
+    const [themeState, setThemeState] = useState("light");
+
+    // light/dark themes related styles css files
+    const themes = {
+        dark: `dark-theme.css`,
+        light: `light-theme.css`,
+    };
+
+    /**
+     * Gets the theme state on initial load
+     * stored in localStorage or if not, set default theme as light theme
+     */
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const currentTheme = localStorage.getItem("theme") || "light"; // get the user theme state from localStorage
+            setThemeState(currentTheme);
+        }
+    }, []);
+
+    /**
+     * Toggles the theme and keep it in localStorage
+     */
+    const toggleTheme = () => {
+        if (themeState === "dark") {
+            localStorage.setItem("theme", "light");
+            setThemeState("light");
+        } else {
+            localStorage.setItem("theme", "dark");
+            setThemeState("dark");
+        }
+    };
 
     const { t } = useTranslation();
 
@@ -59,6 +96,28 @@ export default function NavigationBar({ navigation, user }: { navigation: any, u
                 <div className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${'block'}`}>
 
                     <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+
+                        <ThemeSwitcherProvider themeMap={themes} defaultTheme={themeState}>
+                            <div className="">
+                                {themeState === "light" && (
+                                    <Sun
+                                        size={20}
+                                        color="black"
+                                        style={{ cursor: "pointer" }}
+                                        onClick={toggleTheme}
+                                    />
+                                )}
+
+                                {themeState === "dark" && (
+                                    <Moon
+                                        size={20}
+                                        color="white"
+                                        style={{ cursor: "pointer" }}
+                                        onClick={toggleTheme}
+                                    />
+                                )}
+                            </div>
+                        </ThemeSwitcherProvider>
 
                         {
                             navigation.map((item: any, idx: any) => {
