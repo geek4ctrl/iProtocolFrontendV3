@@ -4,6 +4,12 @@ import supabase from "./SupabaseClient";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import {
+    useTranslation,
+    LanguageSwitcher,
+    LinkWithLocale
+} from "next-export-i18n";
+
 interface Event {
     title: string;
     author: string;
@@ -32,7 +38,10 @@ interface AuthenticatedUserEventsReservationComponentProps {
     chosenReservationType: string; // Replace 'string' with the appropriate type
 }
 
+
 export default function AuthenticatedUserEventsReservationComponent({ item, user, userInformation, chosenReservationType }: { item: any, user: any, userInformation: any, chosenReservationType: any }) {
+
+    const { t } = useTranslation();
 
     const handleReserveClick = async (event: any) => {
 
@@ -87,7 +96,7 @@ export default function AuthenticatedUserEventsReservationComponent({ item, user
         <span className="flex items-center gap-2">
             <ToastContainer />
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={(e) => handleReserveClick(item)} style={{ color: "black", backgroundColor: "#F2E3FB" }}>
-                Reserve
+                {t("reserveButtonKey")}
             </button>
         </span>
     )

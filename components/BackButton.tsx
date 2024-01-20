@@ -1,8 +1,19 @@
+"use client"
+
 import Link from "next/link";
+
+import {
+    useTranslation,
+    LanguageSwitcher,
+    LinkWithLocale
+} from "next-export-i18n";
 
 interface BackButtonProps { }
 
 export default function BackButton(props: BackButtonProps) {
+
+    const { t } = useTranslation();
+
     return (
         <Link
             href="/"
@@ -22,7 +33,7 @@ export default function BackButton(props: BackButtonProps) {
             >
                 <polyline points="15 18 9 12 15 6" />
             </svg>{' '}
-            Back
+            {t("backButtonKey")}
         </Link>
     )
 }

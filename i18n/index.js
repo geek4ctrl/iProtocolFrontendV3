@@ -1,15 +1,17 @@
 var en = require("./translations.en.json");
-var de = require("./translations.de.json");
+var fr = require("./translations.fr.json");
+var it = require("./translations.it.json");
 
 const i18n = {
     translations: {
         en,
-        de,
+        fr,
+        it
     },
     defaultLang: "en",
     useBrowserDefault: true,
     // optional property will default to "query" if not set
-    languageDataStore: "query" || "localStorage",
+    languageDataStore: "localStorage",
 };
 
 module.exports = i18n;
