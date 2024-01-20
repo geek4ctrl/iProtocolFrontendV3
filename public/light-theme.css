@@ -20,3 +20,11 @@ ul a {
 /* button {
     background-color: #0f1113 !important;
 } */
+
+#loginButton {
+    color: white !important;
+}
+
+div a {
+    color: white;
+}
