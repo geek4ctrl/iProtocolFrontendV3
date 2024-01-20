@@ -2,6 +2,12 @@
 
 import { useStore } from "@/src/store";
 
+import {
+    useTranslation,
+    LanguageSwitcher,
+    LinkWithLocale
+} from "next-export-i18n";
+
 interface NavigationItem {
     // Define the structure of a navigation item as needed
     name: string;
@@ -19,6 +25,8 @@ interface NavigationBarProps {
 
 
 export function NavigationClientComponent({ allGomaPlaces, allKinshasaPlaces }: { allGomaPlaces: any, allKinshasaPlaces: any }) {
+
+    const { t } = useTranslation();
 
     const { name } = useStore();
     const allPlaces = useStore((state) => state.place)
@@ -41,10 +49,10 @@ export function NavigationClientComponent({ allGomaPlaces, allKinshasaPlaces }: 
             <div className="max-w-screen-xl mx-auto px-4 md:text-center md:px-8">
                 <div className="max-w-xl space-y-3 md:mx-auto">
                     <p className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-                        Program of the papal visit
+                        {t("programOfThePapalVisitTitleKey")}
                     </p>
                     <p className="text-gray-600">
-                        Always arrive 2 hours before
+                        {t("programOfThePapalVisitTimeKey")}
                     </p>
                 </div>
 

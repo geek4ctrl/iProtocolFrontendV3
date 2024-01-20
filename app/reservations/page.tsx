@@ -7,9 +7,9 @@ import { cookies } from "next/headers";
 let userInformation = {};
 
 const navigation = [
-    { title: "Francais", path: "javascript:void(0)" },
-    { title: "English", path: "javascript:void(0)" },
-    { title: "Italien", path: "javascript:void(0)" },
+    { title: "Francais", path: "javascript:void(0)", lang: "fr" },
+    { title: "English", path: "javascript:void(0)", lang: "en" },
+    { title: "Italien", path: "javascript:void(0)", lang: "it" },
 ];
 
 const tableItems = [

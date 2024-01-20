@@ -60,13 +60,6 @@ export default function NavigationBar({ navigation, user }: { navigation: any, u
 
                     <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
 
-                        <h1>{t('headline')}</h1>
-
-                        <nav>
-                            <LanguageSwitcher lang="de">Deutsch</LanguageSwitcher>
-                            <LanguageSwitcher lang="en">English</LanguageSwitcher>
-                        </nav>
-
                         {
                             navigation.map((item: any, idx: any) => {
                                 return (
@@ -79,17 +72,17 @@ export default function NavigationBar({ navigation, user }: { navigation: any, u
 
                             {user ? (
                                 <div className="flex items-center gap-4">
-                                    Hey, {user.email}!
+                                    {t("navigationBarHeyKey")}, {user.email}!
                                     <LogoutButton />
                                 </div>
                             ) : (
                                 <div className="flex items-center gap-4">
                                     <Link href="/login" className="block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none">
-                                        Log in
+                                        {t("loginButton")}
                                     </Link>
 
                                     <Link href="/login" className="block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
-                                        Sign in
+                                        {t("loginButton")}
                                     </Link>
                                 </div>
                             )}
