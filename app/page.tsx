@@ -20,9 +20,9 @@ const publicSupabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const publicSupabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 const navigation = [
-  { title: "Francais", path: "javascript:void(0)" },
-  { title: "English", path: "javascript:void(0)" },
-  { title: "Italien", path: "javascript:void(0)" },
+  { title: "Francais", path: "javascript:void(0)", lang: "fr" },
+  { title: "English", path: "javascript:void(0)", lang: "en" },
+  { title: "Italien", path: "javascript:void(0)", lang: "it" },
 ];
 
 const posts = [

@@ -4,6 +4,12 @@ import { useStore } from "@/src/store";
 import supabase from './SupabaseClient';
 import AuthenticatedUserEventsReservationComponent from './AuthenticatedUserEventsReservationComponent';
 
+import {
+    useTranslation,
+    LanguageSwitcher,
+    LinkWithLocale
+} from "next-export-i18n";
+
 interface Event {
     title: string;
     author: string;
@@ -21,6 +27,8 @@ interface AuthenticatedUserEventsProps {
 }
 
 export default function AuthenticatedUserEvents({ allEvents, user, userInformation, publicSupabaseUrl, publicSupabaseAnonKey }: AuthenticatedUserEventsProps) {
+
+    const { t } = useTranslation();
 
     const allEventsToDisplayHere = useStore((state) => state.event) ? useStore((state) => state.event) : allEvents;
     const chosenReservationType = useStore((state) => state.chosenReservationType);
@@ -66,8 +74,8 @@ export default function AuthenticatedUserEvents({ allEvents, user, userInformati
         <section className="py-28">
             <div className="max-w-screen-lg mx-auto px-4 md:px-8">
                 <div className="max-w-md">
-                    <h1 className="text-gray-800 text-2xl font-extrabold sm:text-4xl">All Events</h1>
-                    <p className="text-gray-600 mt-2">We're currently looking at different events to help shape your faith and life.</p>
+                    <h1 className="text-gray-800 text-2xl font-extrabold sm:text-4xl">{t("allEventsTitleKey")}</h1>
+                    <p className="text-gray-600 mt-2">{t("allEventsParagraphKey")}</p>
                 </div>
                 <ul className="mt-12 divide-y space-y-3">
                     {
