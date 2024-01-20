@@ -20,8 +20,53 @@ ul a {
 
 nav {
     background: #7a8189 !important;
+    color: white;
 }
 
 button {
     background-color: #4b5157 !important;
+}
+
+#loginButton {
+    color: white !important;
+}
+
+div a {
+    color: white;
+}
+
+li nav span {
+    color: white;
+}
+
+section div div p {
+    color: white !important;
+}
+
+footer div p {
+    color: white !important;
+}
+
+footer div div {
+    color: white !important;
+}
+
+section div article button div div span {
+    color: white !important;
+}
+
+section div div div h1 {
+    color: white !important;
+}
+
+section div div h1 {
+    color: white !important;
+}
+
+section div ul li a p {
+    color: white !important;
+}
+
+section div ul li a div span {
+    color: white !important;
 }
